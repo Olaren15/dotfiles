@@ -22,5 +22,9 @@ Plug 'vim-scripts/argtextobj.vim'
 
 " cool remaps
 map <leader>rn <Action>(RenameElement)
-map <leader>f <Action>(ReformatCode)
+if &ide =~? 'JetBrains Rider'
+    map <leader>f <Action>(SilentCodeCleanup)
+else
+    map <leader>f <Action>(ReformatCode)
+endif
 map <leader>b <Action>(ToggleLineBreakpoint)
