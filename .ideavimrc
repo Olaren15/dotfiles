@@ -3,6 +3,8 @@
 " You can find a list of commands here: https://jb.gg/h38q75
 " Find more examples here: https://jb.gg/share-ideavimrc
 
+" Inspired by : https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+
 source ~/.vimrc
 
 " Don't use Ex mode, use Q for formatting.
@@ -10,21 +12,68 @@ map Q gq
 
 " IntelliJ integrations
 set ideajoin
-set quickscope
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+set nerdtree
+set which-key
 
 " plugins
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
 
 " cool remaps
-map <leader>rn <Action>(RenameElement)
-if &ide =~? 'JetBrains Rider'
-    map <leader>f <Action>(SilentCodeCleanup)
-else
-    map <leader>f <Action>(ReformatCode)
-endif
 map <leader>b <Action>(ToggleLineBreakpoint)
+
+" Refactors
+let g:WhichKeyDesc_reformat_code = "<leader>rf Reformat code"
+if &ide =~? 'JetBrains Rider'
+    map <leader>rf <Action>(SilentCodeCleanup)
+else
+    map <leader>rf <Action>(ReformatCode)
+endif
+let g:WhichKeyDesc_rename = "<leader>rn Re[n]ame"
+map <leader>rn <Action>(RenameElement)
+let g:WhichKeyDesc_extract_methoe = "<leader>rm Extract [m]ethod"
+map <leader>rm <Action>(ExtractMethod)
+let g:WhichKeyDesc_show_refactor_options = "<leader>rr [r]efactor actions"
+map <leader>rr <Action>(Refactorings.QuickListPopupAction)
+let g:WhichKeyDesc_code_actions = "<leader>ca [c]ode [a]ctions"
+map <leader>ca <Action>(ShowIntentionActions)
+
+" Code navigation
+let g:WhichKeyDesc_forward = "<leader>f [f]orward"
+map <leader>f <Action>(Forward)
+let g:WhichKeyDesc_back = "<leader>b [b]ack"
+map <leader>b <Action>(Back)
+
+" Tab navigation
+let g:WhichKeyDesc_next_tab = "<A-n> [n]ext tab"
+nnoremap <A-n> :tabnext<CR>
+let g:WhichKeyDesc_previous_tab = "<A-p> [p]revious tab"
+nnoremap <A-p> :tabprev<CR>\
+let g:WhichKeyDesc_close_tab = "<A-q> [q]uit tab"
+map <A-q> <Action>(CloseContent)
+
+" Commentary config
+let g:WhichKeyDesc_commentary = "<leader>c [c]omment"
+xmap <leader>c <Plug>Commentary
+nmap <leader>c <Plug>Commentary
+omap <leacer>c <Plug>Commentary
+let g:WhichKeyDesc_comment_line = "<leader>cc [c]omment line"
+nmap <leader>cc <Plug>CommentaryLine
+
+" Nerdtree
+let g:WhichKeyDesc_focus_explorer = "<leader>e Focus [e]xplorer"
+map <leader>e :NERDTreeFocus<CR>
+
+" which-key mappings for keybinds in ~/.vimrc
+let g:WhichKeyDesc_scroll_down = "<C-j> Scroll down"
+let g:WhichKeyDesc_scroll_up = "<C-k> Scroll up"
+
+let g:WhichKeyDesc_clipboard_yank = "<leader>y [y]ank to system clipboard"
+let g:WhichKeyDesc_clipboard_paste = "<leader>p [p]aste from system clipboard"
+
+let g:WhichKeyDesc_window_left = "<A-h> Move focus left"
+let g:WhichKeyDesc_window_right = "<A-l> Move focus right"
+let g:WhichKeyDesc_window_up = "<A-k> Move focus up"
+let g:WhichKeyDesc_window_down = "<A-j> Move focus down"
