@@ -21,6 +21,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/argtextobj.vim'
 
 " cool remaps
-map <leader>r <Action>(RenameElement)
-map <leader>R <Action>(ReformatCode)
+map <leader>rn <Action>(RenameElement)
+map <leader>f <Action>(ReformatCode)
 map <leader>b <Action>(ToggleLineBreakpoint)
