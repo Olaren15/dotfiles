@@ -1,0 +1,26 @@
+" .ideavimrc is a configuration file for IdeaVim plugin. It uses
+"   the same commands as the original .vimrc configuration.
+" You can find a list of commands here: https://jb.gg/h38q75
+" Find more examples here: https://jb.gg/share-ideavimrc
+
+source ~/.vimrc
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" IntelliJ integrations
+set ideajoin
+set quickscope
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" plugins
+Plug 'tpope/vim-surround'
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
+
+" cool remaps
+map <leader>r <Action>(RenameElement)
+map <leader>R <Action>(ReformatCode)
+map <leader>b <Action>(ToggleLineBreakpoint)
