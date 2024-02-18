@@ -13,7 +13,7 @@ map Q gq
 " IntelliJ integrations
 set ideajoin
 set nerdtree
-set which-key
+set which-key " Requires the which-key intellij plugin
 
 " plugins
 Plug 'tpope/vim-surround'
@@ -53,6 +53,11 @@ let g:WhichKeyDesc_previous_tab = "<A-p> [p]revious tab"
 nnoremap <A-p> :tabprev<CR>\
 let g:WhichKeyDesc_close_tab = "<A-q> [q]uit tab"
 map <A-q> <Action>(CloseContent)
+" Tab Shifter keybinds (requires the Tab Shifter plugin)
+map <S-A-h> <Action>(TabShiftActions.ShiftLeft)
+map <S-A-j> <Action>(TabShiftActions.ShiftDown)
+map <S-A-k> <Action>(TabShiftActions.ShiftUp)
+map <S-A-l> <Action>(TabShiftActions.ShiftRight)
 
 " Commentary config
 let g:WhichKeyDesc_commentary = "<leader>c [c]omment"
@@ -65,6 +70,7 @@ nmap <leader>cc <Plug>CommentaryLine
 " Nerdtree
 let g:WhichKeyDesc_focus_explorer = "<leader>e Focus [e]xplorer"
 map <leader>e :NERDTreeFocus<CR>
+
 
 " which-key mappings for keybinds in ~/.vimrc
 let g:WhichKeyDesc_scroll_down = "<C-j> Scroll down"
