@@ -36,13 +36,6 @@ return {
                 vim.lsp.buf.format { async = true }
             end, "[r]e-[f]ormat")
 
-            -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-                vim.lsp.buf.format()
-            end, { desc = "Format current buffer with LSP" })
-
-            lsp_map("<leader>ff", "<cmd>Format<cr>", "Format")
-
             -- Attach and configure vim-illuminate
             require("illuminate").on_attach(client)
         end

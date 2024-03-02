@@ -5,7 +5,31 @@
 
 " Inspired by : https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
 
-source ~/.vimrc
+let mapleader = " "
+nnoremap <SPACE> <Nop>
+set notimeout
+
+" Search
+set nohlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" line numbers / scrolling
+set number
+set relativenumber
+set scrolloff=8
+
+" indenting
+set autoindent
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+" Others
+set showmode
+set showcmd
+set list
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
@@ -71,15 +95,19 @@ nmap <leader>cc <Plug>CommentaryLine
 let g:WhichKeyDesc_focus_explorer = "<leader>e Focus [e]xplorer"
 map <leader>e :NERDTreeFocus<CR>
 
-
-" which-key mappings for keybinds in ~/.vimrc
-let g:WhichKeyDesc_scroll_down = "<C-j> Scroll down"
-let g:WhichKeyDesc_scroll_up = "<C-k> Scroll up"
-
+" Faster access to system clipboard
+nnoremap <leader>y "+y
 let g:WhichKeyDesc_clipboard_yank = "<leader>y [y]ank to system clipboard"
+nnoremap <leader>p "+p
 let g:WhichKeyDesc_clipboard_paste = "<leader>p [p]aste from system clipboard"
 
+" Pane navigation
+nnoremap <A-h> <C-w>h
 let g:WhichKeyDesc_window_left = "<A-h> Move focus left"
+nnoremap <A-l> <C-w>l
 let g:WhichKeyDesc_window_right = "<A-l> Move focus right"
+nnoremap <A-k> <C-w>k
 let g:WhichKeyDesc_window_up = "<A-k> Move focus up"
+nnoremap <A-j> <C-w>j
 let g:WhichKeyDesc_window_down = "<A-j> Move focus down"
+
