@@ -7,19 +7,12 @@ return {
             "j-hui/fidget.nvim",
             opts = {},
         },
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
         "folke/neodev.nvim",
         "RRethy/vim-illuminate",
-        -- "hrsh7th/cmp-nvim-lsp",  TODO
+        "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        require("mason").setup()
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls"
-            },
-            automatic_installaion = true,
-        })
-
         require("neodev").setup()
 
         -- This function gets run when an LSP connects to a particular buffer.
@@ -54,7 +47,6 @@ return {
             require("illuminate").on_attach(client)
         end
 
-
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
@@ -66,6 +58,20 @@ return {
                 }
             }
         }
+
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            automatic_installaion = true,
+        })
+
+        local ensure_installed = vim.tbl_keys(lsp_servers or {})
+        vim.list_extend(ensure_installed, {
+            "stylua"
+        })
+        require("mason-tool-installer").setup({
+            ensure_installed = ensure_installed,
+            auto_update = true,
+        })
 
         require("mason-lspconfig").setup_handlers {
             function(server_name)
