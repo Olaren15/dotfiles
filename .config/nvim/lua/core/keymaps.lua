@@ -1,6 +1,6 @@
+vim.keymap.set({ "n", "v", }, " ", "<Nop>", { silent = true, remap = false })
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.keymap.set({ "n", "v", }, " ", "<Nop>", { remap = false })
 
 -- Faster acces to system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", "\"+y", { remap = false, desc = "[y]ank to system clipboard" })
