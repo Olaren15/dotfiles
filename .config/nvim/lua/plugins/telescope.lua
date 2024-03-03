@@ -1,18 +1,20 @@
 return {
-    "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
-    branch = "0.1.x",
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make",
-            cond = function()
-                return vim.fn.executable("make") == 1
-            end,
+    {
+        "nvim-telescope/telescope.nvim",
+        event = "VeryLazy",
+        branch = "0.1.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                cond = function()
+                    return vim.fn.executable("make") == 1
+                end,
+            },
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-tree/nvim-web-devicons",
         },
-        "nvim-telescope/telescope-ui-select.nvim",
-        "nvim-tree/nvim-web-devicons",
         config = function()
             require("telescope").setup({
                 extensions = {
@@ -36,20 +38,20 @@ return {
             vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[s]earch [d]iagnostics" })
             vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[s]earch [r]esume" })
             vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = "[s]earch recent files (\".\" for repeat)" })
-            vim.keymap.set("n", "<leader><leader>", builtin.buffer, { desc = "[ ] Find existing buffers" })
-            vim.keymap.set("n", "<leader>/", function ()
+            vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+            vim.keymap.set("n", "<leader>/", function()
                 builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
                     winblend = 10,
                     previewer = false,
                 }))
             end, { desc = "[/] Fuzzily search in current buffer" })
-            vim.keymap.set("n", "<leader>s/", function ()
+            vim.keymap.set("n", "<leader>s/", function()
                 builtin.live_grep({
                     grep_open_files = true,
                     prompt_title = "Live grep in open files",
                 })
             end, { desc = "[s]earch [/] in open files" })
-            vim.keymap.set("n", "<leader>sn", function ()
+            vim.keymap.set("n", "<leader>sn", function()
                 builtin.find_files({ cwd = vim.fn.stdpath("config") })
             end, { desc = "[s]earch [n]eovim files" })
         end

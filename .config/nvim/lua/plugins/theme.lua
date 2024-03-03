@@ -1,6 +1,5 @@
 return {
-    "dracula/vim",
-    name = "dracula",
+    "Mofiqul/dracula.nvim",
     lazy = false,
     priority = 1000,
     config = function()

@@ -4,7 +4,8 @@ vim.o.undofile = true
 
 vim.o.timeout = false
 
-vim.o.showmode = true
+-- Shown in lualine
+vim.o.showmode = false
 vim.o.showcmd = false
 
 -- Indenting
