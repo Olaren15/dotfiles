@@ -18,23 +18,17 @@ set smartcase
 " line numbers / scrolling
 set number
 set relativenumber
-set scrolloff=8
-
-" indenting
-set autoindent
-set expandtab
-set tabstop=4
-set shiftwidth=4
+set scrolloff=10
 
 " Others
 set showmode
 set showcmd
-set list
 
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
 " IntelliJ integrations
+set idearefactormode=visual
 set ideajoin
 set nerdtree
 set which-key " Requires the which-key intellij plugin
@@ -111,3 +105,10 @@ let g:WhichKeyDesc_window_up = "<A-k> Move focus up"
 nnoremap <A-j> <C-w>j
 let g:WhichKeyDesc_window_down = "<A-j> Move focus down"
 
+" ide completion
+map <C-n> <Action>(HippieCompletion)
+let g:WhichKeyDesc_next_completion = "<C-n> [n]ext completion option"
+map <C-p> <Action>(HippieBackwardCompletion)
+let g:WhichKeyDesc_previous_completion = "<C-p> [p]revious completion option"
+imap <C-y> <Action>(EditorChooseLookupItem)
+let g:WhichKeyDesc_accept_completion = "<C-y> [y]es (accept) completion"
