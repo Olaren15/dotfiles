@@ -13,6 +13,8 @@ fish_add_path ~/.local/bin
 set -U SDL_VIDEODRIVER wayland,x11
 set -U ELECTRON_OZONE_PLATFORM_HINT wayland
 
+# gpg stuff
+set -gx GPG_TTY (tty)
 
 alias vi="nvim"
 alias vim="nvim"
