@@ -38,4 +38,4 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 add-zsh-hook precmd vcs_info
 
 # Prompt style
-PROMPT=$'\n%{$color_cyan%}%n%{$color_reset%}@%{$color_purple%}%m%{$color_reset%} in %{$color_green%}%~%{$color_reset%} ${vcs_info_msg_0_}\n%(?.%{%F{white}%}.%{$color_red%})%(!.#.❯)%{$color_reset%} '
+PROMPT=$'\n%{$color_cyan%}%n%{$color_reset%}@%{$color_purple%}%m%{$color_reset%} in %{$color_green%} %~%{$color_reset%} ${vcs_info_msg_0_}\n%(?.%{%F{white}%}.%{$color_red%})%(!.#.❯)%{$color_reset%} '
