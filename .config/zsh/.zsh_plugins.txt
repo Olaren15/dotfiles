@@ -1,0 +1,19 @@
+$ZDOTDIR/themes/dioxide/dioxide.zsh-theme
+$ZDOTDIR/.aliases
+
+mattmc3/zephyr path:lib/bootstrap.zsh
+mattmc3/zephyr path:plugins/color
+mattmc3/zephyr path:plugins/completion
+
+https://github.com/peterhurford/up.zsh
+
+# Add support for special keys
+belak/zsh-utils path:editor
+
+# vim moddeee
+jeffreytse/zsh-vi-mode
+
+zdharma-continuum/fast-syntax-highlighting kind:defer
+
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search

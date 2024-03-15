@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+alias ll=ls -lh
+alias la=ls -lah
+
+# always use neovim
+alias vi=nvim
+alias vim=nvim
