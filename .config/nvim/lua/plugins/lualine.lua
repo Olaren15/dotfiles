@@ -48,7 +48,7 @@ return {
             },
             lualine_z = {
                 "location",
-                { "progress", padding = 2 },
+                { "progress", padding = { left = 1, right = 2 } },
             },
         },
         extensions = {

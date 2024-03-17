@@ -15,6 +15,8 @@ return {
                 ["<leader>r"] = { name = "[r]efactor", _ = "which_key_ignore" },
                 ["<leader>s"] = { name = "[s]earch", _ = "which_key_ignore" },
                 ["<leader>w"] = { name = "[w]okspace", _ = "which_key_ignore" },
+                ["<leader>g"] = { name = "[g]it", _ = "which_key_ignore" },
+                ["<leader>gd"] = { name = "[d]iff", _ = "which_key_ignore" },
             })
         end
     }
