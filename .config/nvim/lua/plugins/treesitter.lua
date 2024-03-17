@@ -7,6 +7,7 @@ return {
             "nvim-treesitter/nvim-treesitter-context",
             "andymass/vim-matchup",
         },
+        event = "VeryLazy",
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "vimdoc", "vim" },
@@ -45,6 +46,7 @@ return {
         dependencies = {
             "numToStr/Comment.nvim",
         },
+        event = "VeryLazy",
         config = function ()
             ---@diagnostic disable-next-line: missing-fields
             require("ts_context_commentstring").setup({

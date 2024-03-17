@@ -1,35 +1,40 @@
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
-vim.o.undofile = true
-
-vim.o.timeout = false
+vim.opt.undofile = true
 
 -- Shown in lualine
-vim.o.showmode = false
-vim.o.showcmd = false
+vim.opt.showmode = false
+vim.opt.showcmd = false
 
 -- Indenting
-vim.o.autoindent = true
-vim.o.expandtab = true
-vim.o.tabstop = 2
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
 
 -- Search
-vim.o.hlsearch = false
-vim.o.incsearch = true
-vim.o.ignorecase = true
-vim.o.smartcase = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.inccommand = "split"
 
 -- Line numbers
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.signcolumn = "yes"
-vim.o.cursorline = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 
 -- Scrolling
-vim.o.scrolloff = 10
-vim.o.sidescrolloff = 5
-vim.o.wrap = false
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 5
+vim.opt.wrap = false
 
 -- Splitting
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Displaying whitespace
+vim.opt.list = true
+vim.opt.listchars = { tab = ">-", space = "·", nbsp = "␣" }
+
+vim.opt.colorcolumn = { [1] = 80, [2] = 120 }

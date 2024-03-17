@@ -9,6 +9,7 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             "folke/neodev.nvim",
         },
+        event = "VeryLazy",
         config = function()
             require("neodev").setup()
 
@@ -16,7 +17,7 @@ return {
                 group = vim.api.nvim_create_augroup("my-lsp-attach", { clear = true }),
                 callback = function(event)
                     local lsp_map = function(keys, func, description)
-                        vim.keymap.set("n", keys, func, { buffer = event.buf, desc = description })
+                        vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " ..description })
                     end
 
                     lsp_map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -70,5 +71,5 @@ return {
             })
         end,
     },
-    { "folke/neodev.nvim", opts = {} },
+    { "folke/neodev.nvim", opts = {}, event = "VeryLazy" },
 }
