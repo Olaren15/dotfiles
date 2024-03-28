@@ -10,9 +10,6 @@ https://github.com/peterhurford/up.zsh
 # Add support for special keys
 belak/zsh-utils path:editor
 
-# vim moddeee
-jeffreytse/zsh-vi-mode
-
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 zsh-users/zsh-autosuggestions
