@@ -78,12 +78,10 @@ map <S-A-k> <Action>(TabShiftActions.ShiftUp)
 map <S-A-l> <Action>(TabShiftActions.ShiftRight)
 
 " Commentary config
-let g:WhichKeyDesc_commentary = "<leader>c [c]omment"
-xmap <leader>c <Plug>Commentary
-nmap <leader>c <Plug>Commentary
-omap <leacer>c <Plug>Commentary
+let g:WhichKeyDesc_commentary = "gc [c]omment"
+nmap gc <Plug>Commentary
 let g:WhichKeyDesc_comment_line = "<leader>cc [c]omment line"
-nmap <leader>cc <Plug>CommentaryLine
+nmap gcc <Plug>CommentaryLine
 
 " Nerdtree
 let g:WhichKeyDesc_focus_explorer = "<leader>e Focus [e]xplorer"
