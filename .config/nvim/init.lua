@@ -1,8 +1,2 @@
-require("core.keymaps")
-require("core.options")
-
-if vim.g.neovide then
-  require("core.neovide")
-end
-
-require("core.lazy")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
