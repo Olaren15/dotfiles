@@ -16,3 +16,8 @@ setopt appendhistory
 export GPG_TTY=$(tty)
 
 export PATH=${HOME}/.local/bin:${PATH}
+
+# Start tmux
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+  exec tmux
+fi
