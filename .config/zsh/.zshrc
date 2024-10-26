@@ -13,6 +13,10 @@ SAVEHIST=10000
 setopt appendhistory
 
 # gpg stuff
+unset SSG_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
 export GPG_TTY=$(tty)
 
 export PATH=${HOME}/.local/bin:${PATH}
