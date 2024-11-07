@@ -6,3 +6,5 @@ alias la=ls -lah
 # always use neovim
 alias vi=nvim
 alias vim=nvim
+
+alias lazyvim="NVIM_APPNAME=lazyvim nvim"
