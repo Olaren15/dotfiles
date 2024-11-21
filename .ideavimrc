@@ -30,8 +30,9 @@ map Q gq
 " IntelliJ integrations
 set idearefactormode=visual
 set ideajoin
+set ideamarks
 set nerdtree
-set which-key " Requires the which-key intellij plugin
+set ideavimsupport=dialog,singleline
 
 " plugins
 Plug 'tpope/vim-surround'
@@ -39,37 +40,53 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/argtextobj.vim'
 
-" cool remaps
-map <leader>b <Action>(ToggleLineBreakpoint)
-
 " Refactors
-let g:WhichKeyDesc_reformat_code = "<leader>rf Reformat code"
+" [r]e[f]ormat
 if &ide =~? 'JetBrains Rider'
-    map <leader>rf <Action>(SilentCodeCleanup)
+    nmap <leader>rf <Action>(SilentCodeCleanup)
 else
-    map <leader>rf <Action>(ReformatCode)
+    nmap <leader>rf <Action>(ReformatCode)
 endif
-let g:WhichKeyDesc_rename = "<leader>rn Re[n]ame"
+"[r]efactor [r]ename
 map <leader>rn <Action>(RenameElement)
-let g:WhichKeyDesc_extract_methoe = "<leader>rm Extract [m]ethod"
+"[r]efactor extract [m]ethod
 map <leader>rm <Action>(ExtractMethod)
-let g:WhichKeyDesc_show_refactor_options = "<leader>rr [r]efactor actions"
-map <leader>rr <Action>(Refactorings.QuickListPopupAction)
-let g:WhichKeyDesc_code_actions = "<leader>ca [c]ode [a]ctions"
-map <leader>ca <Action>(ShowIntentionActions)
+"[r]efactor extract [v]ariable
+map <leader>rv <Action>(IntroduceVariable)
+"[r]efactor popup
+nmap <leader>rr <Action>(Refactorings.QuickListPopupAction)
 
-" Code navigation
-let g:WhichKeyDesc_forward = "<leader>f [f]orward"
-map <leader>f <Action>(Forward)
-let g:WhichKeyDesc_back = "<leader>b [b]ack"
-map <leader>b <Action>(Back)
+" move lines
+map <C-j> <Action>(MoveLineDown)
+map <C-k> <Action>(MoveLineUp)
+
+" navigate errors
+"[ (previous) [d]iagnostic
+nmap [d <Action>(GotoPreviousError)
+"] (next) [d]iagnostic
+nmap ]d <Action>(GotoNextError)
+
+" navigate methods
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+" navigate git hunks
+"] (next) [c]hange
+nmap ]c <Action>(VcsShowNextChangeMarker)
+"[ (previous) [c]hange
+nmap [c <Action>(VcsShowPrevChangeMarker)
+"= (show?) [c]hange
+nmap =c <Action>(VcsShowCurrentChangeMarker)
+
+" camel caase word navigation
+nmap <leader>b [b
+nmap <leader>w [w
+nmap <leader>e ]w
+nmap <leader>ge ]b
 
 " Tab navigation
-let g:WhichKeyDesc_next_tab = "<A-n> [n]ext tab"
-nnoremap <A-n> :tabnext<CR>
-let g:WhichKeyDesc_previous_tab = "<A-p> [p]revious tab"
-nnoremap <A-p> :tabprev<CR>\
-let g:WhichKeyDesc_close_tab = "<A-q> [q]uit tab"
+nmap <A-n> :tabnext<CR>
+nmap <A-p> :tabprev<CR>\
 map <A-q> <Action>(CloseContent)
 " Tab Shifter keybinds (requires the Tab Shifter plugin)
 map <S-A-h> <Action>(TabShiftActions.ShiftLeft)
@@ -78,35 +95,71 @@ map <S-A-k> <Action>(TabShiftActions.ShiftUp)
 map <S-A-l> <Action>(TabShiftActions.ShiftRight)
 
 " Commentary config
-let g:WhichKeyDesc_commentary = "gc [c]omment"
 nmap gc <Plug>Commentary
-let g:WhichKeyDesc_comment_line = "<leader>cc [c]omment line"
 nmap gcc <Plug>CommentaryLine
 
 " Nerdtree
-let g:WhichKeyDesc_focus_explorer = "<leader>e Focus [e]xplorer"
-map <leader>e :NERDTreeFocus<CR>
+nmap <leader>e :NERDTreeFocus<CR>
 
 " Faster access to system clipboard
-nnoremap <leader>y "+y
-let g:WhichKeyDesc_clipboard_yank = "<leader>y [y]ank to system clipboard"
-nnoremap <leader>p "+p
-let g:WhichKeyDesc_clipboard_paste = "<leader>p [p]aste from system clipboard"
+nmap <leader>y "+y
+nmap <leader>Y "+Y
+nmap <leader>p "+p
+nmap <leader>P "+P
 
 " Pane navigation
-nnoremap <A-h> <C-w>h
-let g:WhichKeyDesc_window_left = "<A-h> Move focus left"
-nnoremap <A-l> <C-w>l
-let g:WhichKeyDesc_window_right = "<A-l> Move focus right"
-nnoremap <A-k> <C-w>k
-let g:WhichKeyDesc_window_up = "<A-k> Move focus up"
-nnoremap <A-j> <C-w>j
-let g:WhichKeyDesc_window_down = "<A-j> Move focus down"
+nmap <A-h> <C-w>h
+nmap <A-l> <C-w>l
+nmap <A-k> <C-w>k
+nmap <A-j> <C-w>j
 
 " ide completion
-map <C-n> <Action>(HippieCompletion)
-let g:WhichKeyDesc_next_completion = "<C-n> [n]ext completion option"
-map <C-p> <Action>(HippieBackwardCompletion)
-let g:WhichKeyDesc_previous_completion = "<C-p> [p]revious completion option"
+imap <C-j> <Action>(PopupMenu-selectNext)
+imap <C-k> <Action>(PopupMenu-selectPrev)
 imap <C-y> <Action>(EditorChooseLookupItem)
-let g:WhichKeyDesc_accept_completion = "<C-y> [y]es (accept) completion"
+
+" Find files
+"[s]earch [e]verywhere
+map <leader>se <Action>(SearchEverywhere)
+"[s]earch [f]iles
+map <leader>sf <Action>(GotoFile)
+
+" terminal
+nmap <leader>tt <Action>(ActivateTerminalToolWindow)
+
+nmap <S-k> <Action>(ShowHoverInfo)
+
+"[v]im [r]eload
+nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
+
+" project stuff
+"[i]de [r]efresh project
+nmap <leader>iR <Action>(ExternalSystem.ProjectRefreshAction)
+"[c]ode [a]ctions
+nmap <leader>ca <Action>(ShowIntentionActions)
+"[c]ode [g]enerate
+nmap <leader>cg <Action(Generate)
+"[c]ode [r]un
+nmap <leader>cr <Action>(Run)
+"[c]ode [r]un (choose config)
+nmap <leader>cR <Action>(ChooseRunConfiguration)
+"[c]ode [d]ebug
+nmap <leader>cd <Action>(Debug)
+"[c]ode [b]build
+nmap <leader>cb <Action>(Build)
+"[c]ode re[B]uild
+nmap <leader>cB <Action>(Rebuild)
+"[c]ode [s]top
+nmap <leader>cs <Action>(Stop)
+
+" debugging
+"[d]ebug [b]reakpoint
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+"[d]ebug [r]esume
+nmap <leader>dr <Action>(Resume)
+"[d]ebug [i]nto
+nmap <leader>di <Action>(StepInto)
+"[d]ebug [o]ut
+nmap <leader>do <Action>(StepOut)
+"[d]ebug [n]ext
+nmap <leader>dn <Action>(StepOver)
