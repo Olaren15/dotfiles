@@ -32,7 +32,6 @@ set idearefactormode=visual
 set ideajoin
 set ideamarks
 set nerdtree
-set ideavimsupport=dialog,singleline
 
 " plugins
 Plug 'tpope/vim-surround'
@@ -138,7 +137,7 @@ nmap <leader>iR <Action>(ExternalSystem.ProjectRefreshAction)
 "[c]ode [a]ctions
 nmap <leader>ca <Action>(ShowIntentionActions)
 "[c]ode [g]enerate
-nmap <leader>cg <Action(Generate)
+nmap <leader>cg <Action>(Generate)
 "[c]ode [r]un
 nmap <leader>cr <Action>(Run)
 "[c]ode [r]un (choose config)
