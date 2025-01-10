@@ -21,3 +21,4 @@ export GPG_TTY=$(tty)
 
 export PATH=${HOME}/.local/bin:${PATH}
 
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
