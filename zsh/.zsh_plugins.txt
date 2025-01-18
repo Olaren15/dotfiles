@@ -1,5 +1,4 @@
-$ZDOTDIR/themes/dioxide/dioxide.zsh-theme
-$ZDOTDIR/.aliases
+$HOME/.local/share/zsh/themes/dioxide/dioxide.zsh-theme
 
 mattmc3/zephyr path:lib/bootstrap.zsh
 mattmc3/zephyr path:plugins/color

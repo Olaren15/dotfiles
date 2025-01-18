@@ -1,16 +1,19 @@
 # clone antidote if necessary
-[[ -d ~/.antidote ]] || git clone https://github.com/mattmc3/antidote ~/.antidote
+[[ -d $HOME/.local/opt/antidote ]] || git clone https://github.com/mattmc3/antidote $HOME/.local/opt/antidote
 
-source ~/.antidote/antidote.zsh
+source $HOME/.local/opt/antidote/antidote.zsh
 antidote load
 
-export EDITOR="nvim"
 
 # History configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+# use neovim
+export EDITOR="nvim"
+alias vim=nvim
 
 # gpg stuff
 unset SSG_AGENT_PID
@@ -21,4 +24,5 @@ export GPG_TTY=$(tty)
 
 export PATH=${HOME}/.local/bin:${PATH}
 
+# always start in tmux
 [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
