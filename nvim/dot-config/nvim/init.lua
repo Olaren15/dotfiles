@@ -5,6 +5,7 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = string.find(vim.env.TERM, "256color") ~= nil
 
 require("keybinds")
+require("options")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
