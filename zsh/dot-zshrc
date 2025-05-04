@@ -30,4 +30,4 @@ if command -v zoxide &> /dev/null; then
 fi
 
 # always start in tmux
-[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
