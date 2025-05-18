@@ -3,6 +3,7 @@ vim.g.maplocalleader = " "
 
 require("keybinds")
 require("options")
-require("autocmds")
 
 require("config.lazy")
+
+require("autocmds")
