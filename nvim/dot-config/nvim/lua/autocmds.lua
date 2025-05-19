@@ -16,11 +16,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         bufmap("n", "<leader>rn", vim.lsp.buf.rename, "[r]e[n]ame")
         bufmap("n", "<leader>ca", vim.lsp.buf.code_action, "[c]ode [a]ctions")
-        bufmap("n", "gd", vim.lsp.buf.definition, "[g]o to [d]efinition")
-        bufmap("n", "gi", vim.lsp.buf.implementation, "[g]o to [i]mplementation")
-        bufmap("n", "gr", vim.lsp.buf.references, "[g]o to [r]eferences")
+        bufmap("n", "gd", require("telescope.builtin").lsp_definitions, "[g]o to [d]efinition")
+        bufmap("n", "gi", require("telescope.builtin").lsp_implementations, "[g]o to [i]mplementation")
+        bufmap("n", "gr", require("telescope.builtin").lsp_references, "[g]o to [r]eferences")
         bufmap("n", "gD", vim.lsp.buf.declaration, "[g]o to [D]eclaration")
-        bufmap("n", "gt", vim.lsp.buf.type_definition, "[g]o to [t]ype definition")
+        bufmap("n", "gt", require("telescope.builtin").lsp_type_definitions, "[g]o to [t]ype definition")
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
