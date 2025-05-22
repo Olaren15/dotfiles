@@ -24,3 +24,6 @@ vim.keymap.set("n", "<A-d>", ":bd<cr>", { desc = "[d]elete buffer" })
 
 -- Hide highlight
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Useful keybind
+vim.keymap.set("n", "<C-k>", vim.diagnostic.open_float, { desc = "Open diagnostic infos" })

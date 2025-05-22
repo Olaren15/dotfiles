@@ -55,3 +55,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end
 })
+
+-- Automaticallyh disable annoying autmatic comment continuation
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ 'r', 'o' })
+    end,
+})
