@@ -3,6 +3,7 @@ return {
         'saghen/blink.cmp',
         -- use a release tag to download pre-built binaries
         version = '1.*',
+        event = "VeryLazy",
         opts = {
             keymap = {
                 preset = 'default',
@@ -50,7 +51,7 @@ return {
                         },
                         components = {
                             item_idx = {
-                                text = function (ctx)
+                                text = function(ctx)
                                     if ctx.idx == 10 then
                                         return "0"
                                     end
@@ -82,4 +83,3 @@ return {
         opts_extend = { "sources.default" }
     }
 }
-

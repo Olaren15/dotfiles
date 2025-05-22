@@ -3,6 +3,7 @@ return {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate',
         main = 'nvim-treesitter.configs',
+        event = "VeryLazy",
         opts = {
             ensure_installed = {
                 'bash',
@@ -28,6 +29,7 @@ return {
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
+        event = "BufEnter",
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
         },
