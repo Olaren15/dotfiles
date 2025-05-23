@@ -24,9 +24,6 @@ set scrolloff=10
 set showmode
 set showcmd
 
-" Don't use Ex mode, use Q for formatting.
-map Q gq
-
 " IntelliJ integrations
 set idearefactormode=visual
 set ideajoin

@@ -20,6 +20,8 @@ vim.opt.smartcase = true
 -- Keep signcolumn on by default
 vim.opt.signcolumn = "yes"
 
+vim.o.colorcolumn = "80,120"
+
 -- Decrease update time
 vim.opt.updatetime = 1000
 
@@ -45,3 +47,13 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+
+-- Show tabs as 4 spaces
+vim.opt.tabstop = 4
+
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.fillchars = {
+  diff = "╱",
+}
