@@ -34,5 +34,7 @@ set $ws10 10: Misc
 
 include ./config.d/*
 include ./hosts/$(hostname).conf
+# Required for systemd stuff
+include /etc/sway/config.d/*
 
 workspace $ws1
