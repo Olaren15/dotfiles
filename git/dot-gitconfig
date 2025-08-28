@@ -2,8 +2,8 @@
     defaultBranch = main
 
 [user]
-    name = Catherine Gilbert
-    email = mail@cathgilbert.com
+    name = Olaren
+    email = git@olaren.dev
     signingkey = FC5AE1B0775EDF0C
 
 [commit]
