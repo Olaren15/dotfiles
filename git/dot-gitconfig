@@ -36,3 +36,5 @@
 [diff]
     tool = nvimdiff
 
+[safe]
+	directory = /mnt/git/*
