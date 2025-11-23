@@ -21,6 +21,7 @@ return {
         "jsonls",
         "markdown_oxide",
         "markdownlint",
+        "nixfmt",
         "rust_analyzer",
         "sqlls",
         "tailwindcss",
