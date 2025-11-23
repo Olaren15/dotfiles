@@ -1,0 +1,24 @@
+// -*- mode: jsonc -*-
+{
+    "position": "left",
+    "spacing": 0,
+    "layer": "top",
+    "modules-left": [
+        "niri/workspaces"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "tray",
+        "clock"
+    ],
+    "niri/window": {
+        "separate-outputs": true
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%F}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "{:%R}"
+    }
+}
