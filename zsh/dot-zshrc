@@ -44,5 +44,9 @@ if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.z
 autoload -Uz compinit
 compinit
 
+yuri() {
+    curl "https://pds.dollware.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ap5yjdr64h7mk5l3kh6oszryk&cid=bafkreif6jsnaremr7xtihbvejjrtyaa66osc4wnnbpzjjb3ywaaqmvtdb4"
+}
+
 # always start in tmux
 # [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
