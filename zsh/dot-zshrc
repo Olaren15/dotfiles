@@ -1,9 +1,10 @@
+# vim:ft=zsh
+
 # clone antidote if necessary
 [[ -d $HOME/.local/opt/antidote ]] || git clone https://github.com/mattmc3/antidote $HOME/.local/opt/antidote
 
 source $HOME/.local/opt/antidote/antidote.zsh
 antidote load
-
 
 # History configuration
 HISTFILE=~/.zsh_history
@@ -25,9 +26,23 @@ gpg-connect-agent updatestartuptty /bye >/dev/null
 
 export PATH=${HOME}/.local/bin:${PATH}
 
+# zoxide
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh --cmd cd)"
 fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# deno stuff
+if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
+. "/home/cathgilbert/.deno/env"
+
+# Initialize zsh completions
+autoload -Uz compinit
+compinit
 
 # always start in tmux
 # [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
