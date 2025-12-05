@@ -30,7 +30,7 @@ require("lazy").setup({
   -- wtf, I don't want abitrary code exec when I open a random project
   local_spec = false,
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = false },
   -- remove anoying ahh notif when editing plugin configs
   change_detection = {
     enabled = false,

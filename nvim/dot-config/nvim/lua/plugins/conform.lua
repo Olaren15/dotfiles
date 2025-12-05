@@ -16,7 +16,8 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         rust = { "rustfmt" },
-        javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { "deno fmt", "prettierd", "prettier", stop_after_first = true },
+        typescript = { "deno fmt", "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
         css = { "prettierd", "prettier", stop_after_first = true },
         nix = { "nixfmt" },
