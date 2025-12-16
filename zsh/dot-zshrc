@@ -38,7 +38,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # deno stuff
 if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-. "/home/cathgilbert/.deno/env"
+[ -s "$HOME/.deno/env" ] && \. "$HOME/.deno/env"  # This loads deno
 
 # Initialize zsh completions
 autoload -Uz compinit
