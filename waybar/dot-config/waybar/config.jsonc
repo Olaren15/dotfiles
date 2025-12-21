@@ -9,6 +9,7 @@
     "modules-center": [],
     "modules-right": [
         "tray",
+        "battery",
         "clock"
     ],
     "niri/window": {
@@ -16,6 +17,20 @@
     },
     "tray": {
         "spacing": 10
+    },
+    "battery": {
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": " {icon}\n{capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "clock": {
         "tooltip-format": "<big>{:%F}</big>\n<tt><small>{calendar}</small></tt>",
