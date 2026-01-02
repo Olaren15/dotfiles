@@ -1,5 +1,14 @@
 return {
   {
+    "mason-org/mason.nvim",
+    opts = {
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
+    },
+  },
+  {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     event = "VeryLazy",
     dependencies = {
@@ -22,6 +31,7 @@ return {
         "markdown_oxide",
         "markdownlint",
         "nixfmt",
+        "roslyn",
         "rust_analyzer",
         "sqlls",
         "tailwindcss",
