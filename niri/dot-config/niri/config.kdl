@@ -109,6 +109,7 @@ window-rule {
 
 window-rule {
     match app-id="discord"
+    match app-id="vesktop"
     match app-id="org.signal.Signal"
     match app-id="eu.betterbird.Betterbird"
 
