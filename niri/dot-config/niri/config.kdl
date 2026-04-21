@@ -61,11 +61,7 @@ layout {
     }
 }
 
-spawn-at-startup "librewolf"
-spawn-at-startup "waybar"
-spawn-at-startup "gammastep" "-r"
 spawn-at-startup "sh" "-c" "swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'niri msg action power-off-monitors' before-sleep 'swaylock -f -c 000000'"
-spawn-at-startup "dunst"
 
 hotkey-overlay {
     skip-at-startup
@@ -97,12 +93,12 @@ workspace "󰝚" {
 
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefor-esr$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
 window-rule {
-    match app-id="librewolf"
+    match app-id="firefor-esr"
 
     open-on-workspace "󰈹"
     open-maximized true
