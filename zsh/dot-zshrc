@@ -1,11 +1,5 @@
 # vim:ft=zsh
 
-# clone antidote if necessary
-[[ -d $HOME/.local/opt/antidote ]] || git clone https://github.com/mattmc3/antidote $HOME/.local/opt/antidote
-
-source $HOME/.local/opt/antidote/antidote.zsh
-antidote load
-
 # History configuration
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -16,29 +10,17 @@ setopt appendhistory
 export EDITOR="nvim"
 alias vim=nvim
 
-# gpg stuff
-unset SSG_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
-export GPG_TTY=$(tty)
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
 export PATH=${HOME}/.local/bin:${PATH}
+
+bindkey "^y" autosuggest-accept # Vim style accept completion
+zstyle ':completion:*' remote-access no # Do not autocomplete over network
+
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # zoxide
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh --cmd cd)"
 fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# deno stuff
-if [[ ":$FPATH:" != *":$HOME/.zsh/completions:"* ]]; then export FPATH="$HOME/.zsh/completions:$FPATH"; fi
-[ -s "$HOME/.deno/env" ] && \. "$HOME/.deno/env"  # This loads deno
 
 # Initialize zsh completions
 autoload -Uz compinit
@@ -48,5 +30,7 @@ yuri() {
     curl "https://pds.dollware.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ap5yjdr64h7mk5l3kh6oszryk&cid=bafkreif6jsnaremr7xtihbvejjrtyaa66osc4wnnbpzjjb3ywaaqmvtdb4"
 }
 
-# always start in tmux
-# [ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+eval "$(starship init zsh)"

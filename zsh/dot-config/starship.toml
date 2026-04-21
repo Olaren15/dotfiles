@@ -1,0 +1,144 @@
+add_newline = true
+
+format = """
+$username\
+@$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$fill\
+$cmake\
+$c\
+$cpp\
+$rust\
+$dotnet\
+$nodejs\
+$deno\
+$line_break\
+$nix_shell\
+$jobs\
+$character\
+"""
+
+right_format = "$time"
+
+[c]
+disabled = false
+format = "(\\[[$name $version]($style)\\] )"
+style = "cyan"
+detect_files = [ "makefile", "CMakeLists.txt" ]
+
+# [cpp]
+# disabled = false
+# format = "(\\[[$name $version]($style)\\] )"
+# style = "cyan"
+# detect_files = [ "makefile", "CMakeLists.txt" ]
+
+[character]
+disabled = false
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vimcmd_symbol = "[ ❯](bold green)"
+
+[cmake]
+format = "(\\[[cmake $version]($style)\\] )"
+style = "cyan"
+
+[cmd_duration]
+disabled = false
+
+[deno]
+disabled = false
+format = "(\\[[deno $version]($style)\\] )"
+style = "cyan"
+
+[directory]
+disabled = false
+format = " in [ $path]($style)[$read_only]($read_only_style) "
+read_only = ""
+style = "green"
+
+[dotnet]
+disabled = false
+format = "(\\[[dotnet $version]($style)\\] )"
+style = "cyan"
+
+[fill]
+disabled = false
+
+[git_branch]
+disabled = false
+format = "on [$symbol $branch]($style) (󱂇 [$remote_name/$remote_branch]($style))"
+symbol = ""
+style = "purple"
+
+[git_commit]
+disabled = false
+format = "[\\($hash$tag\\)]($style)"
+tag_symbol = " "
+only_detached = true # Only show tag in detached HEAD state
+tag_disabled = true # Disable showing tag in git_branch module
+
+[git_state]
+disabled = false
+
+[git_status]
+format = "$all_status"
+conflicted = "[󰑃󰑁](bold red) "
+ahead = "[ $count](green) "
+behind = "[ $count](red) "
+diverged = "[ $ahead_count](green) [ $behind_count](red) "
+up_to_date = ""
+untracked = "[ $count](bold yellow) "
+stashed = "[󰄠 $count](bold yellow) "
+modified = "[ $count](bold yellow) "
+staged = "[ $count](bold green) "
+renamed = "[ $count](bold yellow) "
+deleted = "[ $count](bold red) "
+
+[hostname]
+disabled = false
+format = "[$hostname](purple)[( $ssh_symbol)](bold blue)"
+ssh_only = false
+ssh_symbol = "ssh"
+
+[jobs]
+disabled = false
+format = "[$symbol $number]($style) "
+symbol = "󰓡"
+number_threshold = 1 # Always show number when there are jobs
+style = "bold blue"
+
+[line_break]
+disabled = false
+
+# My goat
+[nix_shell]
+disabled = false
+format = "[$symbol]($style) \\($name\\) "
+symbol = ""
+style = "blue"
+
+[nodejs]
+disabled = false
+format = "(\\[[nodejs $version]($style)\\] )"
+style = "cyan"
+
+[rust]
+disabled = false
+format = "(\\[[rust $version $toolchain]($style)\\] )"
+style = "cyan"
+
+[time]
+disabled = false
+format = "$time"
+
+[username]
+disabled = false
+format = "[$user]($style)"
+show_always = true
+style_root = "bold red"
+style_user = "cyan"
+
