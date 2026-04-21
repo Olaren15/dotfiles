@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Source - https://stackoverflow.com/a/79327865
+# Posted by JonasVautherin, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-03-04, License - CC BY-SA 4.0
+
+for serial in `ykman list -s`; do
+  if [ "$serial" == "24444419" ]; then
+    echo "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIGQFHk8VfqRxdJmxtO/qYrDb2FL+yU668K1VOj66gFXOAAAABHNzaDo= yubikey-5-nfc"
+    exit 0
+  elif [ "$serial" == "37105922" ]; then
+    echo "key::sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILUM9WYJNEKbaZiSC4e2Z8zow/ilQYvste/q9MTIj2rpAAAABHNzaDo= yubikey-5c-nfc"
+    exit 0
+  fi
+done
+
+echo "error: couldn't find available Yubikey!" 1>&2
+exit 1
+

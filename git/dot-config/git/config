@@ -1,13 +1,22 @@
-[init]
-    defaultBranch = main
-
 [user]
     name = Olaren
     email = git@olaren.dev
-    signingkey = FC5AE1B0775EDF0C
 
 [commit]
     gpgsign = true
+
+[tag]
+    forceSignAnnotated = true
+
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = /home/olaren/.config/git/allowed-signers
+    defaultKeyCommand = /home/olaren/.local/bin/git-signing-key
+
+[init]
+    defaultBranch = main
 
 [push]
     autoSetupRemote = true
@@ -30,11 +39,8 @@
 
 [merge]
     conflictstyle = zdiff3
-    tool = nvimdiff
-    prompt = false
+    tool = nvim
 
-[diff]
-    tool = nvimdiff
+[mergetool "nvim"]
+    cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
 
-[safe]
-	directory = /mnt/git/*
