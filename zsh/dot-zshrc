@@ -30,7 +30,12 @@ yuri() {
     curl "https://pds.dollware.net/xrpc/com.atproto.sync.getBlob?did=did%3Aplc%3Ap5yjdr64h7mk5l3kh6oszryk&cid=bafkreif6jsnaremr7xtihbvejjrtyaa66osc4wnnbpzjjb3ywaaqmvtdb4"
 }
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
+
