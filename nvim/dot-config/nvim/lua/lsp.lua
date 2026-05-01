@@ -1,0 +1,16 @@
+vim.lsp.enable({
+  "lua_ls",
+  "nil_ls",
+  "cssls",
+  "eslint",
+  "html",
+  "jsonls",
+  "tailwindcss",
+  "ts_ls",
+  "roslyn_ls",
+  "jdtls",
+  "rust_analyzer",
+  "texlab",
+  "yamlls",
+  "zuban",
+})

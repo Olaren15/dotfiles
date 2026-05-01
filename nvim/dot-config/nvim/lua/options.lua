@@ -4,9 +4,6 @@ vim.opt.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
 
--- Don"t show the mode, since it"s already in the status line
-vim.opt.showmode = false
-
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -24,10 +21,6 @@ vim.o.colorcolumn = "80,120"
 
 -- Decrease update time
 vim.opt.updatetime = 1000
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -57,3 +50,10 @@ vim.opt.expandtab = true
 vim.opt.fillchars = {
   diff = "╱",
 }
+
+-- Avoid mapping conflicts with nvim-treesitter-textobjects
+vim.g.no_plugin_maps = true
+
+-- Spelling
+vim.opt.spelllang = { "en", "fr" }
+vim.opt.spell = true
