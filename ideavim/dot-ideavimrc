@@ -4,13 +4,13 @@
 " Find more examples here: https://jb.gg/share-ideavimrc
 
 " Inspired by : https://www.cyberwizard.io/posts/the-ultimate-ideavim-setup/
+" and my own nvim config
 
 let mapleader = " "
 nnoremap <SPACE> <Nop>
 set notimeout
 
 " Search
-set nohlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -28,13 +28,14 @@ set showcmd
 set idearefactormode=visual
 set ideajoin
 set ideamarks
-set nerdtree
+
+" https://plugins.jetbrains.com/plugin/28333-vim-anyobject
+set anyobject
 
 " plugins
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-commentary'
-Plug 'vim-scripts/argtextobj.vim'
 
 " Refactors
 " [r]e[f]ormat
@@ -44,17 +45,9 @@ else
     nmap <leader>rf <Action>(ReformatCode)
 endif
 "[r]efactor [r]ename
-map <leader>rn <Action>(RenameElement)
-"[r]efactor extract [m]ethod
-map <leader>rm <Action>(ExtractMethod)
-"[r]efactor extract [v]ariable
-map <leader>rv <Action>(IntroduceVariable)
+nmap <leader>rn <Action>(RenameElement)
 "[r]efactor popup
 nmap <leader>rr <Action>(Refactorings.QuickListPopupAction)
-
-" move lines
-map <C-j> <Action>(MoveLineDown)
-map <C-k> <Action>(MoveLineUp)
 
 " navigate errors
 "[ (previous) [d]iagnostic
@@ -67,11 +60,11 @@ nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
 " navigate git hunks
-"] (next) [c]hange
-nmap ]c <Action>(VcsShowNextChangeMarker)
-"[ (previous) [c]hange
-nmap [c <Action>(VcsShowPrevChangeMarker)
-"= (show?) [c]hange
+"] (next) [h]unk
+nmap ]h <Action>(VcsShowNextChangeMarker)
+"[ (previous) [h]unk
+nmap [h <Action>(VcsShowPrevChangeMarker)
+"g (show?) [h]unk
 nmap =c <Action>(VcsShowCurrentChangeMarker)
 
 " camel caase word navigation
@@ -94,15 +87,6 @@ map <S-A-l> <Action>(TabShiftActions.ShiftRight)
 nmap gc <Plug>Commentary
 nmap gcc <Plug>CommentaryLine
 
-" Nerdtree
-nmap <leader>e :NERDTreeFocus<CR>
-
-" Faster access to system clipboard
-nmap <leader>y "+y
-nmap <leader>Y "+Y
-nmap <leader>p "+p
-nmap <leader>P "+P
-
 " Pane navigation
 nmap <A-h> <C-w>h
 nmap <A-l> <C-w>l
@@ -115,22 +99,18 @@ imap <C-k> <Action>(PopupMenu-selectPrev)
 imap <C-y> <Action>(EditorChooseLookupItem)
 
 " Find files
-"[s]earch [e]verywhere
-map <leader>se <Action>(SearchEverywhere)
+"[s]earch [g]rep
+map <leader>sg <Action>(FindInPath)
 "[s]earch [f]iles
 map <leader>sf <Action>(GotoFile)
 
-" terminal
-nmap <leader>tt <Action>(ActivateTerminalToolWindow)
-
+" Show type info
 nmap <S-k> <Action>(ShowHoverInfo)
 
 "[v]im [r]eload
 nmap <leader>vr <Action>(IdeaVim.ReloadVimRc.reload)
 
 " project stuff
-"[i]de [r]efresh project
-nmap <leader>iR <Action>(ExternalSystem.ProjectRefreshAction)
 "[c]ode [a]ctions
 nmap <leader>ca <Action>(ShowIntentionActions)
 "[c]ode [g]enerate
