@@ -1,0 +1,6 @@
+directory: /mnt/music
+library: ~/.local/share/beets/musiclibrary.db
+
+import:
+  copy: yes
+  timid: yes
