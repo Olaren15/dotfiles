@@ -5,6 +5,7 @@ vim.lsp.enable({
   "eslint",
   "html",
   "jsonls",
+  "astro",
   "tailwindcss",
   "ts_ls",
   "roslyn_ls",

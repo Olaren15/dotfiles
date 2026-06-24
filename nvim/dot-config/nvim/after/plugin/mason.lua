@@ -42,6 +42,7 @@ require("mason-tool-installer").setup({
     "css-lsp",
     "eslint-lsp",
     "json-lsp",
+    "astro-language-server",
     "tailwindcss-language-server",
     "typescript-language-server",
     "prettierd",
