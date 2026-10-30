@@ -107,6 +107,14 @@ window-rule {
     open-maximized true
 }
 
+// Open jetbrains IDEs maxmized
+window-rule {
+    match app-id="^jetbrains-.*$"
+    exclude app-id="^jetbrains-toolbox$"
+
+    open-maximized true
+}
+
 window-rule {
     match app-id="discord"
     match app-id="vesktop"
